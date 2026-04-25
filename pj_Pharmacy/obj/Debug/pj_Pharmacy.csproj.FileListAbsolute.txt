@@ -1,0 +1,130 @@
+C:\Users\ismaa\OneDrive\Escritorio\pjBD_Farmacia\pj_Pharmacy\pj_Pharmacy\bin\Debug\pj_Pharmacy.exe.config
+C:\Users\ismaa\OneDrive\Escritorio\pjBD_Farmacia\pj_Pharmacy\pj_Pharmacy\bin\Debug\pj_Pharmacy.exe
+C:\Users\ismaa\OneDrive\Escritorio\pjBD_Farmacia\pj_Pharmacy\pj_Pharmacy\bin\Debug\pj_Pharmacy.pdb
+C:\Users\ismaa\OneDrive\Escritorio\pjBD_Farmacia\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.AssemblyReference.cache
+C:\Users\ismaa\OneDrive\Escritorio\pjBD_Farmacia\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Home.resources
+C:\Users\ismaa\OneDrive\Escritorio\pjBD_Farmacia\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Properties.Resources.resources
+C:\Users\ismaa\OneDrive\Escritorio\pjBD_Farmacia\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.GenerateResource.cache
+C:\Users\ismaa\OneDrive\Escritorio\pjBD_Farmacia\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.CoreCompileInputs.cache
+C:\Users\ismaa\OneDrive\Escritorio\pjBD_Farmacia\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.exe
+C:\Users\ismaa\OneDrive\Escritorio\pjBD_Farmacia\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.pdb
+C:\Users\ismaa\OneDrive\Escritorio\pjBD_Farmacia\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Buy.resources
+C:\Users\ismaa\OneDrive\Escritorio\pjBD_Farmacia\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Login.resources
+C:\Users\ismaa\OneDrive\Escritorio\pjBD_Farmacia\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Products.resources
+C:\Users\ismaa\OneDrive\Escritorio\pjBD_Farmacia\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Sell.resources
+C:\Users\ismaa\OneDrive\Escritorio\pjBD_Farmacia\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.supplier.resources
+C:\Users\ismaa\OneDrive\Escritorio\pjBD_Farmacia\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Users.resources
+C:\Users\ismaa\OneDrive\Escritorio\pjBD_Farmacia\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.MrControlers.MrTextBox.resources
+C:\Users\ismaa\OneDrive\Escritorio\pjBD_Farmacia\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Cliente.resources
+C:\Users\ismaa\OneDrive\Escritorio\pjBD_Farmacia\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Envio.resources
+C:\Users\ismaa\OneDrive\Escritorio\pjBD_Farmacia\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Assesor.resources
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\bin\Debug\pj_Pharmacy.exe.config
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\bin\Debug\pj_Pharmacy.exe
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\bin\Debug\pj_Pharmacy.pdb
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.AssemblyReference.cache
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Assesor.resources
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Buy.resources
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Cliente.resources
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Envio.resources
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Home.resources
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Login.resources
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Products.resources
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Sell.resources
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.supplier.resources
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Users.resources
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.MrControlers.MrTextBox.resources
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Properties.Resources.resources
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.GenerateResource.cache
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.CoreCompileInputs.cache
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.exe
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.pdb
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\bin\Debug\pj_Pharmacy.exe.config
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\bin\Debug\pj_Pharmacy.exe
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\bin\Debug\pj_Pharmacy.pdb
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.AssemblyReference.cache
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Assesor.resources
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Buy.resources
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Cliente.resources
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Envio.resources
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Home.resources
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Login.resources
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Products.resources
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Sell.resources
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.supplier.resources
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Users.resources
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.MrControlers.MrTextBox.resources
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.Properties.Resources.resources
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.GenerateResource.cache
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.CoreCompileInputs.cache
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.exe
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.pdb
+C:\Users\ismaa\Downloads\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.MrControlers.MrComboBox.resources
+C:\Users\Nesto\OneDrive\Escritorio\pj_Pharmacy\pj_Pharmacy\obj\Debug\pj_Pharmacy.MrControlers.MrComboBox.resources
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\bin\Debug\Farmacia.exe.config
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\bin\Debug\Farmacia.exe
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\bin\Debug\Farmacia.pdb
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.AssemblyReference.cache
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Assesor.resources
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Buy.resources
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Cliente.resources
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Envio.resources
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Home.resources
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Login.resources
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Products.resources
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Sell.resources
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.supplier.resources
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Users.resources
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.MrControlers.MrComboBox.resources
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.MrControlers.MrTextBox.resources
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\obj\Debug\Farmacia.Properties.Resources.resources
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.GenerateResource.cache
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.CoreCompileInputs.cache
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\obj\Debug\Farmacia.exe
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\obj\Debug\Farmacia.pdb
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\bin\Debug\Farmacia.exe.manifest
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\bin\Debug\Farmacia.application
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\obj\Debug\Farmacia.exe.manifest
+C:\Users\ismaa\Downloads\pj_PharmacyCF\pj_Pharmacy\obj\Debug\Farmacia.application
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\bin\Debug\Farmacia.exe.config
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\bin\Debug\Farmacia.exe.manifest
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\bin\Debug\Farmacia.application
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\bin\Debug\Farmacia.exe
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\bin\Debug\Farmacia.pdb
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.AssemblyReference.cache
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Assesor.resources
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Buy.resources
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Cliente.resources
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Envio.resources
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Home.resources
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Login.resources
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Products.resources
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Sell.resources
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.supplier.resources
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Users.resources
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.MrControlers.MrComboBox.resources
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.MrControlers.MrTextBox.resources
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\Farmacia.Properties.Resources.resources
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.GenerateResource.cache
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.CoreCompileInputs.cache
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\Farmacia.exe.manifest
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\Farmacia.application
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\Farmacia.exe
+C:\Users\ismaa\Downloads\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\Farmacia.pdb
+C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.AssemblyReference.cache
+C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Assesor.resources
+C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Buy.resources
+C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Cliente.resources
+C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Envio.resources
+C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Home.resources
+C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Login.resources
+C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Products.resources
+C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Sell.resources
+C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.supplier.resources
+C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Users.resources
+C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.MrControlers.MrComboBox.resources
+C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.MrControlers.MrTextBox.resources
+C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\Farmacia.Properties.Resources.resources
+C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.GenerateResource.cache
+C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.CoreCompileInputs.cache
+C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\Farmacia.exe
+C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\Farmacia.pdb
