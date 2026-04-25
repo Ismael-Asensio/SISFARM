@@ -1,98 +1,116 @@
-﻿using pj_Pharmacy.Utilities;
+using pj_Pharmacy.DataAccess.Repositories;
+using pj_Pharmacy.Utilities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace pj_Pharmacy.Forms
 {
     public partial class Products : Form
     {
-        private UtilitiesDGV ut = new UtilitiesDGV();
-        private Utility con;
-        public Products(Utility utility)
+        public Products()
         {
-            this.con = utility;
             InitializeComponent();
-            ltBuy();
-        }
-        #region FUNCIONES BASICAS
-        private void Digit_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-
-                MessageBox.Show(this, "Ingresa un Dato Correcto", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            }
+            CargarProductos();
         }
 
-        private void Letter_KeyPress(object sender, KeyPressEventArgs e)
+        #region Carga de Datos
+
+        private void CargarProductos()
         {
+            UtilitiesDGV.FormatearGrid(dgvProducts);
+            ProductoRepository.Listar(dgvProducts);
+        }
 
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
+        private void CargarProductosInactivos()
+        {
+            UtilitiesDGV.FormatearGrid(dgvProducts);
+            ProductoRepository.ListarInactivos(dgvProducts);
+        }
 
-                MessageBox.Show(this, "Ingresa un Dato Correcto", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            }
+        private void Products_Load(object sender, EventArgs e)
+        {
+            cboSupplier.DataSource = ProveedorRepository.ObtenerParaComboBox();
+            cboSupplier.DisplayMember = "Nombreprov";
+            cboSupplier.ValueMember = "RUC";
         }
 
         #endregion
 
-        private void ltBuy()
+        #region Validaciones
+
+        private void Digit_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ut.DGV_Format(ref dgvProducts);
-            con.listarProductos(dgvProducts);
+            InputValidator.SoloDigitos(sender, e);
         }
 
-        private void ltBuyIn()
+        private void Letter_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ut.DGV_Format(ref dgvProducts);
-            con.listarProductosIn(dgvProducts);
+            InputValidator.SoloLetras(sender, e);
         }
+
+        #endregion
+
+        #region CRUD
+
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            if (txtName.Texts.Equals("") || txtDesc.Texts.Equals("") || txtCantidad.Texts.Equals("") || txtPrice.Texts.Equals("") || txtFecE.Texts.Equals("") || cboSupplier.Equals(""))
+            if (InputValidator.HayCamposVacios(txtName.Texts, txtDesc.Texts, txtCantidad.Texts, txtPrice.Texts, txtFecE.Texts))
+                return;
+
+            if (cboSupplier.SelectedValue == null)
             {
-                MessageBox.Show("no podemos insertar campos vacios");
+                MessageBox.Show("Seleccione un proveedor.", "Campos Requeridos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             string rucProveedor = cboSupplier.SelectedValue.ToString();
 
-            con.InsertarProductos(txtName.Texts, txtDesc.Texts, txtPrice.GetIntegerValueUsingIntParse(),txtCantidad.GetIntegerValueUsingIntParse(),txtFecE.Texts, rucProveedor);
+            ProductoRepository.Insertar(
+                txtName.Texts, txtDesc.Texts,
+                txtPrice.GetIntegerValueUsingIntParse(),
+                txtCantidad.GetIntegerValueUsingIntParse(),
+                txtFecE.Texts, rucProveedor
+            );
 
-            ltBuy();
-
-            txtCantidad.Clear();
-            txtDesc.Clear();
-            txtFecE.Clear();
-            txtName.Clear();
-            txtPrice.Clear();
-
+            CargarProductos();
+            LimpiarCampos();
         }
 
-        private void Products_Load(object sender, EventArgs e)
+        private void btnEdit_Click(object sender, EventArgs e)
         {
-            cboSupplier.DataSource = con.cargarcbo();
-            cboSupplier.DisplayMember = "Nombreprov";
-            cboSupplier.ValueMember = "RUC";
+            if (InputValidator.HayCamposVacios(txtCod.Texts, txtName.Texts, txtDesc.Texts))
+                return;
+
+            ProductoRepository.Actualizar(
+                txtName.GetText(), txtDesc.GetText(),
+                txtPrice.GetFloatValueUsingFloatParse(),
+                txtCantidad.GetIntegerValueUsingIntParse(),
+                txtFecE.GetText(),
+                txtCod.GetIntegerValueUsingIntParse()
+            );
+
+            CargarProductos();
+            LimpiarCampos();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (InputValidator.HayCamposVacios(txtCod.GetText()))
+                return;
+
+            ProductoRepository.DarDeBaja(txtCod.GetIntegerValueUsingIntParse());
+            CargarProductos();
+            LimpiarCampos();
+        }
+
+        #endregion
+
+        #region Eventos Grid y Filtros
 
         private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0) return;
+
             txtCod.Texts = dgvProducts.CurrentRow.Cells[0].Value.ToString();
             txtName.Texts = dgvProducts.CurrentRow.Cells[1].Value.ToString();
             txtDesc.Texts = dgvProducts.CurrentRow.Cells[2].Value.ToString();
@@ -101,49 +119,25 @@ namespace pj_Pharmacy.Forms
             txtFecE.Texts = dgvProducts.CurrentRow.Cells[7].Value.ToString();
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            con.ActualizarProducto(txtName.GetText(), txtDesc.GetText(), txtPrice.GetFloatValueUsingFloatParse(),
-                                    txtCantidad.GetIntegerValueUsingIntParse(), txtFecE.GetText(),
-                                    txtCod.GetIntegerValueUsingIntParse());
-            ltBuy();
-
-            // Clearing the custom TextBox
-            txtCantidad.Clear();
-            txtDesc.Clear();
-            txtFecE.Clear();
-            txtName.Clear();
-            txtPrice.Clear();
-
-
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-           
-            if (txtCod.GetText()=="")
-            {
-                MessageBox.Show("no podemos insertar campos vacios");
-                return;
-            }
-            con.CambiarEstadoProducto(txtCod.GetIntegerValueUsingIntParse());
-            ltBuy();
-            txtCantidad.Clear();
-            txtDesc.Clear();
-            txtFecE.Clear();
-            txtName.Clear();
-            txtPrice.Clear();
-
-        }
-
         private void C_Inactivos_CheckedChanged(object sender, EventArgs e)
         {
-            ltBuyIn();
+            CargarProductosInactivos();
         }
 
         private void C_Activos_CheckedChanged(object sender, EventArgs e)
         {
-            ltBuy();
+            CargarProductos();
+        }
+
+        #endregion
+
+        private void LimpiarCampos()
+        {
+            txtCantidad.Clear();
+            txtDesc.Clear();
+            txtFecE.Clear();
+            txtName.Clear();
+            txtPrice.Clear();
         }
     }
 }

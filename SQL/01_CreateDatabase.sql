@@ -1,0 +1,155 @@
+/*
+  SISFARM - Script 01: Creación de Base de Datos y Tablas
+  Usa CHECK constraints modernas (sin sp_bindrule obsoleto).
+*/
+USE master
+GO
+
+IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'Pharmacy')
+    CREATE DATABASE Pharmacy
+GO
+
+USE Pharmacy
+GO
+
+CREATE TABLE Departamento(
+    IdDep CHAR(5) PRIMARY KEY NOT NULL, 
+    NombreDep NVARCHAR(20) NOT NULL,
+    EstadoDep BIT DEFAULT 1 NOT NULL
+)
+GO
+
+CREATE TABLE Sucursales (
+    IdSuc CHAR(5) PRIMARY KEY NOT NULL,
+    NombreSuc NVARCHAR(15) NOT NULL,
+    DirSuc NVARCHAR(20) NOT NULL,
+    EstadoSuc BIT DEFAULT 1 NOT NULL,
+    Id_dept CHAR(5) FOREIGN KEY REFERENCES Departamento(IdDep) NOT NULL
+)
+GO
+
+CREATE TABLE Clientes(
+    IdCliente INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    DirC NVARCHAR(70) NOT NULL,
+    TelC CHAR(8) CHECK(TelC LIKE '[2578][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'),
+    EstadoC BIT DEFAULT 1 NOT NULL,
+    CodDep CHAR(5) FOREIGN KEY REFERENCES Departamento(IdDep) NOT NULL
+)
+GO
+
+CREATE TABLE ClienteNatural(
+    IDCN INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    PNCN NVARCHAR(15) NOT NULL, SNCN NVARCHAR(15),
+    PACN NVARCHAR(15) NOT NULL, SACN NVARCHAR(15),
+    TipoC CHAR(1) CHECK(TipoC IN ('A', 'R')),
+    IdCliente INT FOREIGN KEY REFERENCES Clientes(IdCliente) NOT NULL
+)
+GO
+
+CREATE TABLE ClienteJuridico(
+    IDCJ INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    PNCJur NVARCHAR(25) NOT NULL, SNCJur NVARCHAR(25),
+    PACJur NVARCHAR(25) NOT NULL, SACJur NVARCHAR(25),
+    CargoCJur NVARCHAR(25) NOT NULL,
+    IdCliente INT FOREIGN KEY REFERENCES Clientes(IdCliente) NOT NULL
+)
+GO
+
+CREATE TABLE Proveedores(
+    RUC CHAR(5) PRIMARY KEY NOT NULL,
+    Nombreprov NVARCHAR(35) NOT NULL,
+    DirProv NVARCHAR(80) NOT NULL,
+    TelP CHAR(8) CHECK(TelP LIKE '[2578][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')
+)
+GO
+
+CREATE TABLE Cont_Asesor(
+    IdCont CHAR(4) PRIMARY KEY NOT NULL,
+    PNC NVARCHAR(15) NOT NULL, SNC NVARCHAR(15),
+    PAC NVARCHAR(15) NOT NULL, SAC NVARCHAR(15),
+    DirCont NVARCHAR(70) NOT NULL,
+    TelCont CHAR(8) CHECK(TelCont LIKE '[2578][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'),
+    MailCont NVARCHAR(45),
+    IdDist CHAR(5) FOREIGN KEY REFERENCES Proveedores(RUC) NOT NULL
+)
+GO
+
+CREATE TABLE Productos(
+    CodProd INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    NombreProd NVARCHAR(45) NOT NULL,
+    DescProd NVARCHAR(50) NOT NULL,
+    PrecioP FLOAT NOT NULL CHECK (PrecioP > 0),
+    ExistP INT NOT NULL CHECK (ExistP >= 0),
+    EstadoP BIT DEFAULT 1 NOT NULL,
+    R_Receta BIT DEFAULT 0 NOT NULL,
+    FechaElab DATE NOT NULL,
+    FechaVenc DATE NOT NULL,
+    IdDist CHAR(5) FOREIGN KEY REFERENCES Proveedores(RUC) NOT NULL
+)
+GO
+
+CREATE TABLE Empleados(
+    DNI CHAR(15) PRIMARY KEY NOT NULL,
+    PNEmp NVARCHAR(25) NOT NULL, SNEmp NVARCHAR(25),
+    PAEmp NVARCHAR(25) NOT NULL, SAEmp NVARCHAR(25),
+    TelEmp CHAR(8) CHECK(TelEmp LIKE '[2578][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'),
+    IdDep CHAR(5) FOREIGN KEY REFERENCES Departamento(IdDep),
+    IdSuc CHAR(5) FOREIGN KEY REFERENCES Sucursales(IdSuc) NOT NULL,
+    CargoEmp NVARCHAR(25) NOT NULL
+)
+GO
+
+CREATE TABLE Vendedores (
+    VendedorId INT IDENTITY(1,1) PRIMARY KEY CLUSTERED,
+    DNI CHAR(15) FOREIGN KEY REFERENCES Empleados(DNI) NOT NULL,
+    ValidFrom DATETIME2(2) GENERATED ALWAYS AS ROW START,
+    ValidTo DATETIME2(2) GENERATED ALWAYS AS ROW END,
+    PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
+) WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.VentasHistory))
+GO
+
+CREATE TABLE Compras(
+    IdCompra INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    FechaCompra DATE NOT NULL,
+    IdDist CHAR(5) FOREIGN KEY REFERENCES Proveedores(RUC) NOT NULL,
+    SubtC MONEY CHECK (SubtC >= 0),
+    TotalC MONEY CHECK (TotalC >= 0)
+)
+GO
+
+CREATE TABLE DetCompras(
+    IdCompra INT FOREIGN KEY REFERENCES Compras(IdCompra) NOT NULL,
+    CodProd INT FOREIGN KEY REFERENCES Productos(CodProd) NOT NULL,
+    CantC INT NOT NULL CHECK (CantC > 0),
+    PrecioC FLOAT NOT NULL CHECK (PrecioC > 0),
+    SubtC MONEY CHECK (SubtC >= 0),
+    PRIMARY KEY(IdCompra, CodProd)
+)
+GO
+
+CREATE TABLE Ventas(
+    IdVenta INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    FechaV DATETIME DEFAULT GETDATE() NOT NULL,
+    IdCliente INT FOREIGN KEY REFERENCES Clientes(IdCliente) NOT NULL,
+    TotalV FLOAT CHECK (TotalV > 0),
+    VendedorId INT FOREIGN KEY REFERENCES Vendedores(VendedorId)
+)
+GO
+
+CREATE TABLE DetVentas(
+    IdVenta INT FOREIGN KEY REFERENCES Ventas(IdVenta) NOT NULL,
+    CodProd INT FOREIGN KEY REFERENCES Productos(CodProd) NOT NULL,
+    CantV INT NOT NULL CHECK (CantV > 0),
+    SubtP FLOAT CHECK (SubtP >= 0),
+    PRIMARY KEY(IdVenta, CodProd)
+)
+GO
+
+CREATE TABLE Envios(
+    IdEnvio INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    Origen NVARCHAR(70) NOT NULL,
+    Destinatario INT FOREIGN KEY REFERENCES Clientes(IdCliente) NOT NULL,
+    DNI CHAR(15) FOREIGN KEY REFERENCES Empleados(DNI) NOT NULL,
+    EstadoEnv BIT DEFAULT 1
+)
+GO

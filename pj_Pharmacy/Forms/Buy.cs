@@ -1,65 +1,69 @@
-﻿using pj_Pharmacy.Utilities;
+using pj_Pharmacy.DataAccess.Repositories;
+using pj_Pharmacy.Utilities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace pj_Pharmacy.Forms
 {
     public partial class Buy : Form
     {
-        private UtilitiesDGV ut = new UtilitiesDGV();
-        private Utility con;
-        public Buy(Utility utility)
+        public Buy()
         {
-            this.con = utility;
             InitializeComponent();
-            ltBuy();
+            CargarCompras();
         }
 
-        private void Digit_KeyPress(object sender, KeyPressEventArgs e)
+        #region Carga de Datos
+
+        private void CargarCompras()
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-
-                MessageBox.Show("Ingresa un Dato Correcto", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            }
-        }
-
-
-        private void ltBuy()
-        {
-            ut.DGV_Format(ref dgvBuys);
-            con.listarCompras(dgvBuys);
-        }
-
-        private void btnInsertar_Click(object sender, EventArgs e)
-        {
-            string rucProveedor = cboSupplier.SelectedValue.ToString();
-
-            if (txtCodProd.Texts.Equals("") || txtCantidad.Texts.Equals("") || txtPrecio.Texts.Equals("") || cboSupplier.Texts.Equals(""))
-            {
-                MessageBox.Show("no podemos insertar campos vacios");
-                return;
-            }
-
-            con.GestionDeCompras(rucProveedor, txtCantidad.GetIntegerValueUsingIntParse(),txtCodProd.Texts, txtPrecio.GetFloatValueUsingFloatParse());
-            ltBuy();
+            UtilitiesDGV.FormatearGrid(dgvBuys);
+            CompraRepository.Listar(dgvBuys);
         }
 
         private void Buy_Load(object sender, EventArgs e)
         {
-            cboSupplier.DataSource = con.cargarcbo();
+            cboSupplier.DataSource = ProveedorRepository.ObtenerParaComboBox();
             cboSupplier.DisplayMember = "Nombreprov";
             cboSupplier.ValueMember = "RUC";
         }
+
+        #endregion
+
+        #region Validaciones
+
+        private void Digit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            InputValidator.SoloDigitos(sender, e);
+        }
+
+        #endregion
+
+        #region CRUD
+
+        private void btnInsertar_Click(object sender, EventArgs e)
+        {
+            if (cboSupplier.SelectedValue == null)
+            {
+                MessageBox.Show("Seleccione un proveedor.", "Campos Requeridos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (InputValidator.HayCamposVacios(txtCodProd.Texts, txtCantidad.Texts, txtPrecio.Texts))
+                return;
+
+            string rucProveedor = cboSupplier.SelectedValue.ToString();
+
+            CompraRepository.GestionarCompra(
+                rucProveedor,
+                txtCantidad.GetIntegerValueUsingIntParse(),
+                txtCodProd.Texts,
+                txtPrecio.GetFloatValueUsingFloatParse()
+            );
+
+            CargarCompras();
+        }
+
+        #endregion
     }
 }

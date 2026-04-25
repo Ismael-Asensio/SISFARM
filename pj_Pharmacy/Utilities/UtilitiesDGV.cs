@@ -1,25 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace pj_Pharmacy.Utilities
 {
-    internal class UtilitiesDGV
+    /// <summary>
+    /// Utilidades de formateo para DataGridView.
+    /// Ahora es clase estática (no tiene estado).
+    /// </summary>
+    public static class UtilitiesDGV
     {
-        public void DGV_Format(ref DataGridView Dgv)
+        /// <summary>
+        /// Aplica formato estándar a un DataGridView.
+        /// </summary>
+        public static void FormatearGrid(DataGridView dgv)
         {
-            DataGridViewCellStyle style = Dgv.ColumnHeadersDefaultCellStyle;
+            DataGridViewCellStyle style = dgv.ColumnHeadersDefaultCellStyle;
             style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            Dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            Dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgv.AllowUserToAddRows = false;
+            dgv.AllowUserToDeleteRows = false;
+            dgv.ReadOnly = true;
+        }
 
+        /// <summary>
+        /// Aplica formato de moneda a una columna específica del DataGridView.
+        /// </summary>
+        public static void FormatearColumnaMoneda(DataGridView dgv, string nombreColumna)
+        {
+            if (dgv.Columns.Contains(nombreColumna))
+            {
+                dgv.Columns[nombreColumna].DefaultCellStyle.Format = "C2";
+                dgv.Columns[nombreColumna].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            }
+        }
 
-            Dgv.AllowUserToAddRows = false;
-            Dgv.AllowUserToDeleteRows = false;
-            Dgv.ReadOnly = true;
+        /// <summary>
+        /// Aplica formato de fecha a una columna específica del DataGridView.
+        /// </summary>
+        public static void FormatearColumnaFecha(DataGridView dgv, string nombreColumna)
+        {
+            if (dgv.Columns.Contains(nombreColumna))
+            {
+                dgv.Columns[nombreColumna].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgv.Columns[nombreColumna].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
         }
     }
 }
