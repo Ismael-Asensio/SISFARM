@@ -10,6 +10,7 @@ namespace pj_Pharmacy.Forms
         public Users()
         {
             InitializeComponent();
+            ThemeManager.AplicarTema(this);
             txtDNI.MaxLength = 15;
             txtTel.MaxLength = 8;
             CargarEmpleados();

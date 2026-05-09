@@ -10,6 +10,7 @@ namespace pj_Pharmacy.Forms
         public Assesor()
         {
             InitializeComponent();
+            ThemeManager.AplicarTema(this);
             CargarContactos();
             txtTel.MaxLength = 8;
         }

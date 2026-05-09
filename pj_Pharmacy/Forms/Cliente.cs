@@ -10,6 +10,7 @@ namespace pj_Pharmacy.Forms
         public Cliente()
         {
             InitializeComponent();
+            ThemeManager.AplicarTema(this);
             txtTel.MaxLength = 8;
         }
 

@@ -1,4 +1,5 @@
 using pj_Pharmacy.Services;
+using pj_Pharmacy.Utilities;
 using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -28,6 +29,8 @@ namespace pj_Pharmacy.Forms
         public Home()
         {
             InitializeComponent();
+            ThemeManager.AplicarTemaSidebar(pSelection, pHome);
+            pContainer.BackColor = ThemeManager.BgDark;
             ConfigurarPermisos();
             CargarDatosSesion();
         }
@@ -145,6 +148,11 @@ namespace pj_Pharmacy.Forms
         private void btnCon_Click(object sender, EventArgs e)
         {
             OpenForm(new Assesor());
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            OpenForm(new Dashboard());
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]

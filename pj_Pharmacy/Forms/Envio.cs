@@ -10,6 +10,7 @@ namespace pj_Pharmacy.Forms
         public Envio()
         {
             InitializeComponent();
+            ThemeManager.AplicarTema(this);
             CargarEnvios();
             txtDNI.MaxLength = 15;
         }

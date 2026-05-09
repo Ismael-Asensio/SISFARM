@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Farmacia.exe" size="2021888">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Farmacia.exe" size="2043392">
       <assemblyIdentity name="Farmacia" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Ou4kKP7R7dRcDZe8JorVwU3jhJ5AVkkL+zEQ+vY/2Go=</dsig:DigestValue>
+        <dsig:DigestValue>GR9j6jky74l1T1+XKVmNvsX5ifSjXZwWgygYbuEfy8w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

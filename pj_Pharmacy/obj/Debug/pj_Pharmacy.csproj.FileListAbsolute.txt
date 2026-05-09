@@ -129,7 +129,6 @@ C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.csp
 C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\Farmacia.exe
 C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\Farmacia.pdb
 c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.AssemblyReference.cache
-c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\Farmacia.exe.config
 c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Assesor.resources
 c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Buy.resources
 c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Cliente.resources

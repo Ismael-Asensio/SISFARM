@@ -1,4 +1,4 @@
-﻿namespace pj_Pharmacy.Forms
+namespace pj_Pharmacy.Forms
 {
     partial class Home
     {
@@ -46,6 +46,9 @@
             this.panel17 = new System.Windows.Forms.Panel();
             this.panel18 = new System.Windows.Forms.Panel();
             this.btnEnvio = new System.Windows.Forms.Button();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.btnDashboard = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnClient = new System.Windows.Forms.Button();
@@ -82,6 +85,7 @@
             this.panel21.SuspendLayout();
             this.panel19.SuspendLayout();
             this.panel17.SuspendLayout();
+            this.panel23.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -186,6 +190,8 @@
             this.pSelection.Controls.Add(this.panel19);
             this.pSelection.Controls.Add(this.panel17);
             this.pSelection.Controls.Add(this.btnEnvio);
+            this.pSelection.Controls.Add(this.panel23);
+            this.pSelection.Controls.Add(this.btnDashboard);
             this.pSelection.Controls.Add(this.panel1);
             this.pSelection.Controls.Add(this.btnClient);
             this.pSelection.Controls.Add(this.btnLogout);
@@ -302,6 +308,43 @@
             this.btnEnvio.Text = "ENVIO";
             this.btnEnvio.UseVisualStyleBackColor = true;
             this.btnEnvio.Click += new System.EventHandler(this.btnEnvio_Click);
+            // 
+            // panel23
+            // 
+            this.panel23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
+            this.panel23.Controls.Add(this.panel24);
+            this.panel23.Location = new System.Drawing.Point(7, 372);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(5, 24);
+            this.panel23.TabIndex = 20;
+            // 
+            // panel24
+            // 
+            this.panel24.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
+            this.panel24.Location = new System.Drawing.Point(-93, 72);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(5, 45);
+            this.panel24.TabIndex = 7;
+            // 
+            // btnDashboard
+            // 
+            this.btnDashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDashboard.FlatAppearance.BorderSize = 0;
+            this.btnDashboard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(201)))), ((int)(((byte)(234)))));
+            this.btnDashboard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(171)))), ((int)(((byte)(199)))));
+            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDashboard.Font = new System.Drawing.Font("Urbani", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDashboard.Location = new System.Drawing.Point(12, 372);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(188, 24);
+            this.btnDashboard.TabIndex = 19;
+            this.btnDashboard.Text = "\u2261  DASHBOARD";
+            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // panel1
             // 
@@ -662,6 +705,7 @@
             this.panel21.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
+            this.panel23.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
@@ -721,5 +765,8 @@
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.Button btnCon;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.Button btnDashboard;
     }
 }

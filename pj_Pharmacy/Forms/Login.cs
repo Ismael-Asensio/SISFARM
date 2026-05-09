@@ -1,4 +1,5 @@
 using pj_Pharmacy.Services;
+using pj_Pharmacy.Utilities;
 using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -14,6 +15,7 @@ namespace pj_Pharmacy.Forms
         public Login()
         {
             InitializeComponent();
+            ThemeManager.AplicarTema(this);
             ConfigurarTimerBloqueo();
         }
 

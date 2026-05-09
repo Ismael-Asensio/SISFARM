@@ -9,14 +9,32 @@ namespace pj_Pharmacy.DataAccess.Repositories
     /// </summary>
     public static class ProductoRepository
     {
-        public static void Listar(DataGridView dgv)
+        public static void Listar(DataGridView dgv, int pageNumber = 1, int pageSize = 100)
         {
-            DatabaseHelper.FillDataGridView(dgv, "ListProd");
+            int offset = (pageNumber - 1) * pageSize;
+            DatabaseHelper.FillDataGridView(dgv, "ListProd",
+                new SqlParameter("@Offset", SqlDbType.Int) { Value = offset },
+                new SqlParameter("@Fetch", SqlDbType.Int) { Value = pageSize });
         }
 
-        public static void ListarInactivos(DataGridView dgv)
+        public static void ListarInactivos(DataGridView dgv, int pageNumber = 1, int pageSize = 100)
         {
-            DatabaseHelper.FillDataGridView(dgv, "ListProdIn");
+            int offset = (pageNumber - 1) * pageSize;
+            DatabaseHelper.FillDataGridView(dgv, "ListProdIn",
+                new SqlParameter("@Offset", SqlDbType.Int) { Value = offset },
+                new SqlParameter("@Fetch", SqlDbType.Int) { Value = pageSize });
+        }
+
+        public static int ObtenerTotalPaginas(bool activos = true, int pageSize = 100)
+        {
+            object result = DatabaseHelper.ExecuteScalar("CountProd",
+                new SqlParameter("@Estado", SqlDbType.Bit) { Value = activos ? 1 : 0 });
+            
+            if (result != null && int.TryParse(result.ToString(), out int totalRecords))
+            {
+                return (int)System.Math.Ceiling((double)totalRecords / pageSize);
+            }
+            return 1;
         }
 
         public static bool Insertar(string nombre, string descripcion, float precio, int existencia, string fechaElab, string rucProveedor)

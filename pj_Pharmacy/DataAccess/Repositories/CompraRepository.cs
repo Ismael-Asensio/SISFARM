@@ -9,9 +9,22 @@ namespace pj_Pharmacy.DataAccess.Repositories
     /// </summary>
     public static class CompraRepository
     {
-        public static void Listar(DataGridView dgv)
+        public static void Listar(DataGridView dgv, int pageNumber = 1, int pageSize = 100)
         {
-            DatabaseHelper.FillDataGridView(dgv, "ListCompra");
+            int offset = (pageNumber - 1) * pageSize;
+            DatabaseHelper.FillDataGridView(dgv, "ListCompra",
+                new SqlParameter("@Offset", SqlDbType.Int) { Value = offset },
+                new SqlParameter("@Fetch", SqlDbType.Int) { Value = pageSize });
+        }
+
+        public static int ObtenerTotalPaginas(int pageSize = 100)
+        {
+            object result = DatabaseHelper.ExecuteScalar("CountCompra");
+            if (result != null && int.TryParse(result.ToString(), out int totalRecords))
+            {
+                return (int)System.Math.Ceiling((double)totalRecords / pageSize);
+            }
+            return 1;
         }
 
         public static bool GestionarCompra(string rucProveedor, int cantidad, string codigoProducto, float precioCompra)
