@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -16,11 +16,11 @@ namespace pj_Pharmacy.MrControlers
     internal class MrComboBox : UserControl
     {
         //Fields
-        private Color backColor = Color.WhiteSmoke;
-        private Color iconColor = Color.MediumSlateBlue;
-        private Color listBackColor = Color.FromArgb(230, 228, 245);
-        private Color listTextColor = Color.DimGray;
-        private Color borderColor = Color.MediumSlateBlue;
+        private Color backColor = Color.FromArgb(55, 55, 78);
+        private Color iconColor = Color.FromArgb(232, 121, 176);
+        private Color listBackColor = Color.FromArgb(45, 45, 65);
+        private Color listTextColor = Color.FromArgb(230, 230, 240);
+        private Color borderColor = Color.FromArgb(70, 70, 95);
         private int borderSize = 1;
         //Items
         private ComboBox cmbList;

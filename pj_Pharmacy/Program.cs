@@ -1,9 +1,5 @@
-﻿using pj_Pharmacy.Forms;
-using pj_Pharmacy.Utilities;
+using pj_Pharmacy.Forms;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace pj_Pharmacy

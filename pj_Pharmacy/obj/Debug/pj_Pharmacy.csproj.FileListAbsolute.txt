@@ -128,3 +128,28 @@ C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.csp
 C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.CoreCompileInputs.cache
 C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\Farmacia.exe
 C:\Archivos Varios\Proyectos\pj_PharmacyCF\pj_Pharmacy\obj\Debug\Farmacia.pdb
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.AssemblyReference.cache
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Assesor.resources
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Buy.resources
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Cliente.resources
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Envio.resources
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Home.resources
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Login.resources
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Products.resources
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Sell.resources
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.supplier.resources
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\pj_Pharmacy.Forms.Users.resources
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\pj_Pharmacy.MrControlers.MrComboBox.resources
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\pj_Pharmacy.MrControlers.MrTextBox.resources
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\Farmacia.Properties.Resources.resources
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.GenerateResource.cache
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\pj_Pharmacy.csproj.CoreCompileInputs.cache
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\Farmacia.exe
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\Farmacia.pdb
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\bin\Debug\Farmacia.exe.config
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\bin\Debug\Farmacia.exe.manifest
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\bin\Debug\Farmacia.application
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\bin\Debug\Farmacia.exe
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\bin\Debug\Farmacia.pdb
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\Farmacia.exe.manifest
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\Farmacia.application

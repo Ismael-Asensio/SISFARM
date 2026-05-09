@@ -1,0 +1,108 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\si_iasencio\\Desktop\\SISFARM\\SISFARM\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8759032B-5777-426A-9777-E562825314C0}|pj_Pharmacy\\pj_Pharmacy.csproj|c:\\users\\si_iasencio\\desktop\\sisfarm\\sisfarm\\pj_pharmacy\\dataaccess\\databaseconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8759032B-5777-426A-9777-E562825314C0}|pj_Pharmacy\\pj_Pharmacy.csproj|solutionrelative:pj_pharmacy\\dataaccess\\databaseconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8759032B-5777-426A-9777-E562825314C0}|pj_Pharmacy\\pj_Pharmacy.csproj|C:\\Users\\si_iasencio\\Desktop\\SISFARM\\SISFARM\\pj_pharmacy\\dataaccess\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8759032B-5777-426A-9777-E562825314C0}|pj_Pharmacy\\pj_Pharmacy.csproj|solutionrelative:pj_pharmacy\\dataaccess\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8759032B-5777-426A-9777-E562825314C0}|pj_Pharmacy\\pj_Pharmacy.csproj|C:\\Users\\si_iasencio\\Desktop\\SISFARM\\SISFARM\\pj_pharmacy\\dataaccess\\repositories\\proveedorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8759032B-5777-426A-9777-E562825314C0}|pj_Pharmacy\\pj_Pharmacy.csproj|solutionrelative:pj_pharmacy\\dataaccess\\repositories\\proveedorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8759032B-5777-426A-9777-E562825314C0}|pj_Pharmacy\\pj_Pharmacy.csproj|C:\\Users\\si_iasencio\\Desktop\\SISFARM\\SISFARM\\pj_pharmacy\\dataaccess\\repositories\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8759032B-5777-426A-9777-E562825314C0}|pj_Pharmacy\\pj_Pharmacy.csproj|solutionrelative:pj_pharmacy\\dataaccess\\repositories\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8759032B-5777-426A-9777-E562825314C0}|pj_Pharmacy\\pj_Pharmacy.csproj|C:\\Users\\si_iasencio\\Desktop\\SISFARM\\SISFARM\\pj_pharmacy\\forms\\assesor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8759032B-5777-426A-9777-E562825314C0}|pj_Pharmacy\\pj_Pharmacy.csproj|solutionrelative:pj_pharmacy\\forms\\assesor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DatabaseHelper.cs",
+              "DocumentMoniker": "C:\\Users\\si_iasencio\\Desktop\\SISFARM\\SISFARM\\pj_Pharmacy\\DataAccess\\DatabaseHelper.cs",
+              "RelativeDocumentMoniker": "pj_Pharmacy\\DataAccess\\DatabaseHelper.cs",
+              "ToolTip": "C:\\Users\\si_iasencio\\Desktop\\SISFARM\\SISFARM\\pj_Pharmacy\\DataAccess\\DatabaseHelper.cs",
+              "RelativeToolTip": "pj_Pharmacy\\DataAccess\\DatabaseHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T20:29:54.818Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DatabaseConnection.cs",
+              "DocumentMoniker": "C:\\Users\\si_iasencio\\Desktop\\SISFARM\\SISFARM\\pj_Pharmacy\\DataAccess\\DatabaseConnection.cs",
+              "RelativeDocumentMoniker": "pj_Pharmacy\\DataAccess\\DatabaseConnection.cs",
+              "ToolTip": "C:\\Users\\si_iasencio\\Desktop\\SISFARM\\SISFARM\\pj_Pharmacy\\DataAccess\\DatabaseConnection.cs",
+              "RelativeToolTip": "pj_Pharmacy\\DataAccess\\DatabaseConnection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T20:29:47.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProveedorRepository.cs",
+              "DocumentMoniker": "C:\\Users\\si_iasencio\\Desktop\\SISFARM\\SISFARM\\pj_Pharmacy\\DataAccess\\Repositories\\ProveedorRepository.cs",
+              "RelativeDocumentMoniker": "pj_Pharmacy\\DataAccess\\Repositories\\ProveedorRepository.cs",
+              "ToolTip": "C:\\Users\\si_iasencio\\Desktop\\SISFARM\\SISFARM\\pj_Pharmacy\\DataAccess\\Repositories\\ProveedorRepository.cs",
+              "RelativeToolTip": "pj_Pharmacy\\DataAccess\\Repositories\\ProveedorRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T20:27:20.04Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthRepository.cs",
+              "DocumentMoniker": "C:\\Users\\si_iasencio\\Desktop\\SISFARM\\SISFARM\\pj_Pharmacy\\DataAccess\\Repositories\\AuthRepository.cs",
+              "RelativeDocumentMoniker": "pj_Pharmacy\\DataAccess\\Repositories\\AuthRepository.cs",
+              "ToolTip": "C:\\Users\\si_iasencio\\Desktop\\SISFARM\\SISFARM\\pj_Pharmacy\\DataAccess\\Repositories\\AuthRepository.cs",
+              "RelativeToolTip": "pj_Pharmacy\\DataAccess\\Repositories\\AuthRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T20:27:12.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Assesor.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\si_iasencio\\Desktop\\SISFARM\\SISFARM\\pj_Pharmacy\\Forms\\Assesor.cs",
+              "RelativeDocumentMoniker": "pj_Pharmacy\\Forms\\Assesor.cs",
+              "ToolTip": "C:\\Users\\si_iasencio\\Desktop\\SISFARM\\SISFARM\\pj_Pharmacy\\Forms\\Assesor.cs [Design]",
+              "RelativeToolTip": "pj_Pharmacy\\Forms\\Assesor.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T20:26:27.425Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,32 +1,26 @@
-﻿using pj_Pharmacy.Utilities;
+using pj_Pharmacy.Services;
+using pj_Pharmacy.Utilities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace pj_Pharmacy.Forms
 {
     public partial class Login : Form
     {
-        private string userName;
-        private string userRole;
+        private int intentosFallidos = 0;
+        private const int MAX_INTENTOS = 3;
+        private Timer timerBloqueo;
 
         public Login()
         {
             InitializeComponent();
+            ThemeManager.AplicarTema(this);
+            ConfigurarTimerBloqueo();
         }
+
         #region Funciones Basicas
+
         private void pMinimized_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -36,7 +30,6 @@ namespace pj_Pharmacy.Forms
         {
             Application.Exit();
         }
-
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -51,68 +44,45 @@ namespace pj_Pharmacy.Forms
 
         #endregion
 
-        int cont = 3;
+        #region Autenticación
 
-
-
-
-        Utility ut;
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            Cursor.Current = Cursors.WaitCursor;
 
-            if (txtUser.Texts.Equals("") || txtPassword.Texts.Equals(""))
+            LoginResult resultado = AuthService.Login(txtUser.Texts, txtPassword.Texts);
+
+            if (resultado.Exitoso)
             {
-                msgerror("HAY CAMPOS VACÍOS");
-                return;
-            }
-
-            string servidor = Environment.MachineName;
-            string usuario = txtUser.Texts;
-            string contraseña = txtPassword.Texts;
-            string baseDatos = "Pharmacy";   // O puedes obtenerla dinámicamente
-
-            // Crear una instancia de Utility con la cadena de conexión dinámica
-            ut = new Utility(servidor, usuario, contraseña, baseDatos);
-
-            if (this.ut.connect.State == ConnectionState.Open)
-            {
-
-                VerificarRoles(txtUser.Texts);
-
+                intentosFallidos = 0;
+                AbrirHome();
             }
             else
             {
                 Cursor.Current = Cursors.Default;
-                --cont;
-
+                intentosFallidos++;
                 txtUser.Clear();
                 txtPassword.Clear();
-                msgerror("USUARIO O CONTRASEÑA INCORRECTOS");
-                if (cont == 0)
+                MostrarError(resultado.MensajeError);
+
+                if (intentosFallidos >= MAX_INTENTOS)
                 {
-                    cont = 3;
-                    btnLogin.Enabled = false;
-                    Thread.Sleep(3000);
-                    btnLogin.Enabled = true;
-
+                    BloquearLogin();
                 }
-
-
             }
-
         }
 
-
-        private void msgerror(string msg)
+        private void AbrirHome()
         {
-            lblErrorMessage.Text = "   " + msg;
-            lblErrorMessage.Visible = true;
+            Home home = new Home();
+            home.FormClosed += Logout;
+            home.Show();
+            this.Hide();
         }
 
-        private void logout(object sender, FormClosedEventArgs e)
+        private void Logout(object sender, FormClosedEventArgs e)
         {
+            AuthService.Logout();
             txtUser.Clear();
             txtPassword.Clear();
             lblErrorMessage.Visible = false;
@@ -120,69 +90,38 @@ namespace pj_Pharmacy.Forms
             txtUser.Focus();
         }
 
-        private void VerificarRoles(string usuario)
-        {
-            // Consulta para obtener roles del usuario
-            string query = "SELECT r.name " +
-                "FROM sys.server_role_members m " +
-                "INNER JOIN sys.server_principals p ON m.member_principal_id = p.principal_id " +
-                "INNER JOIN sys.server_principals r ON m.role_principal_id = r.principal_id " +
-                "WHERE p.name = @Usuario";
+        #endregion
 
-            using (SqlCommand cmd = new SqlCommand(query, ut.connect))
+        #region UI Helpers
+
+        private void MostrarError(string msg)
+        {
+            lblErrorMessage.Text = "   " + msg;
+            lblErrorMessage.Visible = true;
+        }
+
+        /// <summary>
+        /// Configura el timer que desbloquea el login después de 3 segundos.
+        /// Reemplaza Thread.Sleep(3000) que bloqueaba la UI.
+        /// </summary>
+        private void ConfigurarTimerBloqueo()
+        {
+            timerBloqueo = new Timer();
+            timerBloqueo.Interval = 3000;
+            timerBloqueo.Tick += (s, ev) =>
             {
-                cmd.Parameters.AddWithValue("@Usuario", usuario);
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        userName = usuario;
-                        userRole = reader["name"].ToString();
-                        // Abre el formulario correspondiente según el rol
-                        if (userRole.Equals("sysadmin"))
-                        {
-                            AbrirFormularioDbDdlAdmin();
-                            return;
-                        }
-                        else if (userRole.Equals("processadmin"))
-                        {
-                            AbrirFormularioSysAdmin();
-
-                            return;
-                        }
-                        // Agrega más condiciones según sea necesario para otros roles
-                    }
-                }
-            }
+                btnLogin.Enabled = true;
+                intentosFallidos = 0;
+                timerBloqueo.Stop();
+            };
         }
 
-        private void AbrirFormularioSysAdmin()
+        private void BloquearLogin()
         {
-            Home H = new Home(ut);
-            H.NombreUsuario =  userName;
-            H.RolUsuario = userRole;
-
-            // Deshabilitar botones según el rol
-            H.ProductButton.Enabled = false;
-            H.ConButton.Enabled = false;
-            H.SupplierButton.Enabled = false;
-            H.UserButton.Enabled = false;
-
-            H.Show();
-            H.FormClosed += logout;
-            this.Hide();
+            btnLogin.Enabled = false;
+            timerBloqueo.Start();
         }
 
-        private void AbrirFormularioDbDdlAdmin()
-        {
-            Home H = new Home(ut);
-            H.NombreUsuario = userName;
-            H.RolUsuario = userRole;
-            H.Show();
-            H.FormClosed += logout;
-            this.Hide();
-        }
-
-
+        #endregion
     }
 }

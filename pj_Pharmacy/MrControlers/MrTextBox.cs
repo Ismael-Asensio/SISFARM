@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -18,14 +18,14 @@ namespace pj_Pharmacy.MrControlers
 
         #region -> Fields
         //Fields
-        private Color borderColor = Color.MediumSlateBlue;
-        private Color borderFocusColor = Color.HotPink;
+        private Color borderColor = Color.FromArgb(70, 70, 95);
+        private Color borderFocusColor = Color.FromArgb(232, 121, 176);
         private int borderSize = 2;
         private bool underlinedStyle = false;
         private bool isFocused = false;
 
         private int borderRadius = 0;
-        private Color placeholderColor = Color.DarkGray;
+        private Color placeholderColor = Color.FromArgb(110, 110, 135);
         private string placeholderText = "";
         private bool isPlaceholder = false;
         private bool isPasswordChar = false;
