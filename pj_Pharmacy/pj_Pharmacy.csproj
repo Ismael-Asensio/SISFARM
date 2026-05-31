@@ -58,7 +58,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -149,6 +149,9 @@
     </Compile>
     <Compile Include="MrControlers\MrTextBox.Designer.cs">
       <DependentUpon>MrTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MrControlers\MrButton.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataAccess\DatabaseConnection.cs" />
     <Compile Include="DataAccess\DatabaseHelper.cs" />

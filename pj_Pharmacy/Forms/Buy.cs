@@ -1,6 +1,8 @@
 using pj_Pharmacy.DataAccess.Repositories;
+using pj_Pharmacy.MrControlers;
 using pj_Pharmacy.Utilities;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace pj_Pharmacy.Forms
@@ -13,12 +15,23 @@ namespace pj_Pharmacy.Forms
         private Button btnPrev;
         private Button btnNext;
         private Label lblPage;
+        private MrButton mrBtnGuardar;
 
         public Buy()
         {
             InitializeComponent();
             InitializePaginationControls();
+            ConfigurarBotonGuardar();
             ThemeManager.AplicarTema(this);
+        }
+
+        private void ConfigurarBotonGuardar()
+        {
+            mrBtnGuardar = ThemeManager.CrearBotonGuardar(btnInsertar, flpInput);
+
+            var btnNuevo = ThemeManager.CrearBotonNuevo();
+            btnNuevo.Click += (s, e) => LimpiarCampos();
+            flpInput.Controls.Add(btnNuevo);
         }
 
         #region Carga de Datos
@@ -27,7 +40,7 @@ namespace pj_Pharmacy.Forms
         {
             btnPrev = new Button { Text = "< Anterior", Width = 100, Height = 35, FlatStyle = FlatStyle.Flat, Cursor = Cursors.Hand };
             btnNext = new Button { Text = "Siguiente >", Width = 100, Height = 35, FlatStyle = FlatStyle.Flat, Cursor = Cursors.Hand };
-            lblPage = new Label { Text = "Página 1 de 1", AutoSize = true, Font = new System.Drawing.Font("Segoe UI", 11, System.Drawing.FontStyle.Bold) };
+            lblPage = new Label { Text = "Página 1 de 1", AutoSize = true, Font = new Font("Segoe UI", 11, FontStyle.Bold) };
 
             btnPrev.BackColor = ThemeManager.BgCard;
             btnPrev.ForeColor = ThemeManager.TextLight;
@@ -42,8 +55,8 @@ namespace pj_Pharmacy.Forms
 
             FlowLayoutPanel flpPagination = new FlowLayoutPanel
             {
-                Location = new System.Drawing.Point(dgvBuys.Left, dgvBuys.Bottom + 5),
-                Size = new System.Drawing.Size(dgvBuys.Width, 40),
+                Location = new Point(dgvBuys.Left, dgvBuys.Bottom + 5),
+                Size = new Size(dgvBuys.Width, 40),
                 Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right,
                 FlowDirection = FlowDirection.LeftToRight,
                 Padding = new Padding(20, 2, 0, 0),
@@ -112,7 +125,7 @@ namespace pj_Pharmacy.Forms
                 return;
             }
 
-            if (InputValidator.HayCamposVacios(txtCodProd.Texts, txtCantidad.Texts, txtPrecio.Texts))
+            if (InputValidator.HayCamposVacios(txtCodProd.GetText(), txtCantidad.GetText(), txtPrecio.GetText()))
                 return;
 
             string rucProveedor = cboSupplier.SelectedValue.ToString();
@@ -120,17 +133,25 @@ namespace pj_Pharmacy.Forms
             CompraRepository.GestionarCompra(
                 rucProveedor,
                 txtCantidad.GetIntegerValueUsingIntParse(),
-                txtCodProd.Texts,
+                txtCodProd.GetText(),
                 txtPrecio.GetFloatValueUsingFloatParse()
             );
 
             currentPage = 1;
             CargarDatosPaginados();
-            txtCodProd.Clear();
-            txtCantidad.Clear();
-            txtPrecio.Clear();
+            LimpiarCampos();
         }
 
         #endregion
+
+        private void LimpiarCampos()
+        {
+            txtCodProd.Clear();
+            txtCantidad.Clear();
+            txtPrecio.Clear();
+            mrBtnGuardar.Text = "GUARDAR";
+            mrBtnGuardar.BackColor = ThemeManager.BtnPrimary;
+            mrBtnGuardar.BorderColor_ = ThemeManager.AccentPink;
+        }
     }
 }

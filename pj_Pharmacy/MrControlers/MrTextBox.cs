@@ -250,7 +250,18 @@ namespace pj_Pharmacy.MrControlers
             set
             {
                 textBox1.Text = value;
-                SetPlaceholder();
+                // Si se asigna un valor real, desactivar placeholder
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    isPlaceholder = false;
+                    textBox1.ForeColor = this.ForeColor;
+                    if (isPasswordChar)
+                        textBox1.UseSystemPasswordChar = true;
+                }
+                else
+                {
+                    SetPlaceholder();
+                }
             }
         }
 

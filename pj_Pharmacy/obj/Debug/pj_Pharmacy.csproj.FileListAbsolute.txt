@@ -153,3 +153,4 @@ c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\bin\Debug\Farmacia.exe
 c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\bin\Debug\Farmacia.pdb
 c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\Farmacia.exe.manifest
 c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\Farmacia.application
+c:\Users\si_iasencio\Desktop\SISFARM\SISFARM\pj_Pharmacy\obj\Debug\Farmacia.exe.config

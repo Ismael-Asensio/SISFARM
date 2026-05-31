@@ -1,17 +1,74 @@
 using pj_Pharmacy.DataAccess.Repositories;
+using pj_Pharmacy.MrControlers;
 using pj_Pharmacy.Utilities;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace pj_Pharmacy.Forms
 {
     public partial class Cliente : Form
     {
+        private MrButton mrBtnGuardar;
+
         public Cliente()
         {
             InitializeComponent();
+            ConfigurarBotonGuardar();
             ThemeManager.AplicarTema(this);
             txtTel.MaxLength = 8;
+        }
+
+        private void ConfigurarBotonGuardar()
+        {
+            mrBtnGuardar = ThemeManager.CrearBotonGuardar(btnInsertar, flpInput);
+
+            var btnNuevo = ThemeManager.CrearBotonNuevo();
+            btnNuevo.Click += (s, e) => LimpiarCampos();
+            flpInput.Controls.Add(btnNuevo);
+
+            dgvClient.CellClick += DgvClient_CellClick;
+        }
+
+        private void DgvClient_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            DataGridViewRow row = dgvClient.Rows[e.RowIndex];
+            if (row.Cells[0].Value == null) return;
+
+            for (int i = 0; i < row.Cells.Count && i < 7; i++)
+            {
+                string val = row.Cells[i].Value?.ToString() ?? "";
+                switch (i)
+                {
+                    case 0: break; // ID
+                    case 1: txtFN.Texts = val; break;
+                    case 2: txtSN.Texts = val; break;
+                    case 3: txtFA.Texts = val; break;
+                    case 4: txtSA.Texts = val; break;
+                    case 5: txtAddress.Texts = val; break;
+                    case 6: txtTel.Texts = val; break;
+                }
+            }
+
+            mrBtnGuardar.Text = "ACTUALIZAR";
+            mrBtnGuardar.BackColor = ThemeManager.AccentBlue;
+            mrBtnGuardar.BorderColor_ = ThemeManager.AccentBlue;
+        }
+
+        private void LimpiarCampos()
+        {
+            txtFN.Clear();
+            txtSN.Clear();
+            txtFA.Clear();
+            txtSA.Clear();
+            txtAddress.Clear();
+            txtTel.Clear();
+            txtCargo.Clear();
+            mrBtnGuardar.Text = "GUARDAR";
+            mrBtnGuardar.BackColor = ThemeManager.BtnPrimary;
+            mrBtnGuardar.BorderColor_ = ThemeManager.AccentPink;
         }
 
         #region Carga de Datos
@@ -104,30 +161,32 @@ namespace pj_Pharmacy.Forms
 
             if (cboTypeCN.SelectedItem == null) return;
 
-            if (InputValidator.HayCamposVacios(txtFN.Texts, txtFA.Texts, txtAddress.Texts, txtTel.Texts))
+            if (InputValidator.HayCamposVacios(txtFN.GetText(), txtFA.GetText(), txtAddress.GetText(), txtTel.GetText()))
                 return;
 
             char tipoCliente = cboTypeCN.SelectedItem.ToString() == "Asegurado" ? 'A' : 'R';
 
             ClienteRepository.InsertarNatural(
-                txtAddress.Texts, txtTel.Texts, city,
-                txtFN.Texts, txtSN.Texts, txtFA.Texts, txtSA.Texts,
+                txtAddress.GetText(), txtTel.GetText(), city,
+                txtFN.GetText(), txtSN.GetText(), txtFA.GetText(), txtSA.GetText(),
                 tipoCliente
             );
             CargarClientesNaturales();
+            LimpiarCampos();
         }
 
         private void InsertarClienteJuridico(string city)
         {
-            if (InputValidator.HayCamposVacios(txtFN.Texts, txtFA.Texts, txtAddress.Texts, txtTel.Texts, txtCargo.Texts))
+            if (InputValidator.HayCamposVacios(txtFN.GetText(), txtFA.GetText(), txtAddress.GetText(), txtTel.GetText(), txtCargo.GetText()))
                 return;
 
             ClienteRepository.InsertarJuridico(
-                txtAddress.Texts, txtTel.Texts, city,
-                txtFN.Texts, txtSN.Texts, txtFA.Texts, txtSA.Texts,
-                txtCargo.Texts
+                txtAddress.GetText(), txtTel.GetText(), city,
+                txtFN.GetText(), txtSN.GetText(), txtFA.GetText(), txtSA.GetText(),
+                txtCargo.GetText()
             );
             CargarClientesJuridicos();
+            LimpiarCampos();
         }
 
         #endregion

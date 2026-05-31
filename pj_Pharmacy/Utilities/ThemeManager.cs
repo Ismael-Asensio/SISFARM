@@ -200,40 +200,78 @@ namespace pj_Pharmacy.Utilities
         /// </summary>
         private static void EstiloBoton(Button btn)
         {
+            // MrButton se dibuja solo — no aplicar estilo estándar
+            if (btn is pj_Pharmacy.MrControlers.MrButton)
+                return;
+
             btn.FlatStyle = FlatStyle.Flat;
             btn.Cursor = Cursors.Hand;
             btn.ForeColor = Color.White;
-            btn.Font = new Font("Segoe UI", btn.Font.Size, FontStyle.Bold);
+            btn.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
 
             string name = btn.Name.ToLower();
-            string text = btn.Text.ToLower();
 
-            // Botones de eliminar/baja
-            if (name.Contains("delete") || name.Contains("eliminar") ||
-                text.Contains("eliminar") || text.Contains("delete") || text.Contains("baja"))
+            // Ocultar botones legacy (btnEdit y btnDelete) sin Visible=false
+            if (name == "btnedit" || name == "btndelete")
             {
-                btn.BackColor = BtnDanger;
-                btn.FlatAppearance.BorderSize = 0;
-                btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(192, 57, 43);
-                btn.FlatAppearance.MouseDownBackColor = Color.FromArgb(150, 40, 30);
+                btn.Size = new Size(0, 0);
+                btn.TabStop = false;
+                return;
             }
-            // Botones de editar
-            else if (name.Contains("edit") || name.Contains("actualizar") ||
-                     text.Contains("editar") || text.Contains("edit") || text.Contains("actualizar"))
-            {
-                btn.BackColor = AccentBlue;
-                btn.FlatAppearance.BorderSize = 0;
-                btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(41, 128, 185);
-                btn.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 100, 150);
-            }
-            // Botones normales (insertar, login, etc.)
-            else
-            {
-                btn.BackColor = BtnPrimary;
-                btn.FlatAppearance.BorderSize = 0;
-                btn.FlatAppearance.MouseOverBackColor = BtnHover;
-                btn.FlatAppearance.MouseDownBackColor = AccentPink;
-            }
+
+            // Botones normales — estilo limpio
+            btn.BackColor = BtnPrimary;
+            btn.FlatAppearance.BorderSize = 1;
+            btn.FlatAppearance.BorderColor = AccentPink;
+            btn.FlatAppearance.MouseOverBackColor = BtnHover;
+            btn.FlatAppearance.MouseDownBackColor = AccentPink;
+            btn.Region = null;
+        }
+
+        /// <summary>
+        /// Crea un MrButton "NUEVO" estilizado listo para usar en cualquier formulario.
+        /// </summary>
+        public static pj_Pharmacy.MrControlers.MrButton CrearBotonNuevo()
+        {
+            var btn = new pj_Pharmacy.MrControlers.MrButton();
+            btn.Name = "btnNuevo";
+            btn.Text = "✚ NUEVO";
+            btn.Size = new Size(110, 37);
+            btn.BackColor = BgCard;
+            btn.ForeColor = TextLight;
+            btn.BorderColor_ = AccentPink;
+            btn.HoverColor = BgInput;
+            btn.Margin = new Padding(5, 11, 10, 0);
+            return btn;
+        }
+
+        /// <summary>
+        /// Configura un btnInsertar como MrButton redondeado para el panel de inputs.
+        /// Retorna el MrButton que reemplaza al botón original.
+        /// </summary>
+        public static pj_Pharmacy.MrControlers.MrButton CrearBotonGuardar(Button btnInsertar, FlowLayoutPanel flpInput)
+        {
+            // Crear MrButton redondeado
+            var mrBtn = new pj_Pharmacy.MrControlers.MrButton();
+            mrBtn.Name = "btnGuardar";
+            mrBtn.Text = "GUARDAR";
+            mrBtn.Size = new Size(140, 37);
+            mrBtn.BackColor = BtnPrimary;
+            mrBtn.ForeColor = Color.White;
+            mrBtn.BorderColor_ = AccentPink;
+            mrBtn.HoverColor = BtnHover;
+            mrBtn.Margin = new Padding(10, 11, 5, 0);
+
+            // Conectar al mismo evento Click que el botón original
+            mrBtn.Click += (s, e) => btnInsertar.PerformClick();
+
+            // Ocultar botón original
+            btnInsertar.Size = new Size(0, 0);
+            btnInsertar.TabStop = false;
+
+            // Añadir al panel
+            flpInput.Controls.Add(mrBtn);
+            return mrBtn;
         }
 
         /// <summary>
