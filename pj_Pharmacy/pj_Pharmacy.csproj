@@ -171,6 +171,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\InputValidator.cs" />
+    <Compile Include="Utilities\PdfReportGenerator.cs" />
     <Compile Include="Utilities\ThemeManager.cs" />
     <Compile Include="Utilities\UtilitiesDGV.cs" />
     <EmbeddedResource Include="Forms\Assesor.resx">

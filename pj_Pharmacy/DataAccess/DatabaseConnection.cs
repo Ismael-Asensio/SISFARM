@@ -7,7 +7,7 @@ namespace pj_Pharmacy.DataAccess
     /// <summary>
     /// Gestiona la cadena de conexión y provee conexiones SQL Server.
     /// Cada operación debe abrir y cerrar su propia conexión (patrón using).
-    /// </summary>
+    /// </summary>  
     public static class DatabaseConnection
     {
         private static string _connectionString;
