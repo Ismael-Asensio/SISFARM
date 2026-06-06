@@ -1,3 +1,4 @@
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -38,12 +39,93 @@ namespace pj_Pharmacy.Forms
             this.rootLayout.BackColor = bgDark;
             this.rootLayout.ColumnCount = 1;
             this.rootLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            this.rootLayout.RowCount = 3;
-            this.rootLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 120F));  // KPIs
+            this.rootLayout.RowCount = 4;
+            this.rootLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 58F));   // Toolbar
+            this.rootLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 110F));  // KPIs
             this.rootLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));    // Charts fila 1
             this.rootLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));    // Charts fila 2
             this.rootLayout.Padding = new Padding(5);
             this.rootLayout.Name = "rootLayout";
+
+            // ==========================================
+            // FILA 0: TOOLBAR
+            // ==========================================
+            this.pnlToolbar = new Panel();
+            this.pnlToolbar.Dock = DockStyle.Fill;
+            this.pnlToolbar.BackColor = Color.FromArgb(38, 38, 56);
+
+            // -- Desde --
+            this.lblDesde = new Label();
+            this.lblDesde.Text = "Desde:";
+            this.lblDesde.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
+            this.lblDesde.ForeColor = Color.FromArgb(160, 160, 180);
+            this.lblDesde.AutoSize = true;
+            this.lblDesde.Location = new Point(12, 20);
+
+            this.dtpDesde = new DateTimePicker();
+            this.dtpDesde.Format = DateTimePickerFormat.Short;
+            this.dtpDesde.Font = new Font("Segoe UI", 8.5F);
+            this.dtpDesde.Size = new Size(112, 24);
+            this.dtpDesde.Location = new Point(62, 16);
+            this.dtpDesde.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            this.dtpDesde.Name = "dtpDesde";
+
+            // -- Hasta --
+            this.lblHasta = new Label();
+            this.lblHasta.Text = "Hasta:";
+            this.lblHasta.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
+            this.lblHasta.ForeColor = Color.FromArgb(160, 160, 180);
+            this.lblHasta.AutoSize = true;
+            this.lblHasta.Location = new Point(184, 20);
+
+            this.dtpHasta = new DateTimePicker();
+            this.dtpHasta.Format = DateTimePickerFormat.Short;
+            this.dtpHasta.Font = new Font("Segoe UI", 8.5F);
+            this.dtpHasta.Size = new Size(112, 24);
+            this.dtpHasta.Location = new Point(234, 16);
+            this.dtpHasta.Value = DateTime.Today;
+            this.dtpHasta.Name = "dtpHasta";
+
+            // -- Aplicar --
+            this.btnAplicar = new Button();
+            this.btnAplicar.Text = "\u25B6  Aplicar";
+            this.btnAplicar.Font = new Font("Segoe UI Semibold", 8.5F);
+            this.btnAplicar.ForeColor = Color.FromArgb(230, 230, 240);
+            this.btnAplicar.BackColor = Color.FromArgb(52, 152, 219);
+            this.btnAplicar.FlatStyle = FlatStyle.Flat;
+            this.btnAplicar.FlatAppearance.BorderSize = 0;
+            this.btnAplicar.Size = new Size(96, 28);
+            this.btnAplicar.Location = new Point(356, 14);
+            this.btnAplicar.Cursor = Cursors.Hand;
+            this.btnAplicar.Name = "btnAplicar";
+            this.btnAplicar.Click += new System.EventHandler(this.btnAplicar_Click);
+
+            // -- Exportar PDF --
+            this.btnExportPdf = new Button();
+            this.btnExportPdf.Text = "\u2193  Exportar PDF";
+            this.btnExportPdf.Font = new Font("Segoe UI Semibold", 8.5F);
+            this.btnExportPdf.ForeColor = Color.FromArgb(230, 230, 240);
+            this.btnExportPdf.BackColor = Color.FromArgb(232, 121, 176);
+            this.btnExportPdf.FlatStyle = FlatStyle.Flat;
+            this.btnExportPdf.FlatAppearance.BorderSize = 0;
+            this.btnExportPdf.Size = new Size(140, 28);
+            this.btnExportPdf.Location = new Point(462, 14);
+            this.btnExportPdf.Cursor = Cursors.Hand;
+            this.btnExportPdf.Name = "btnExportPdf";
+            this.btnExportPdf.Click += new System.EventHandler(this.btnExportPdf_Click);
+
+            // -- Título central --
+            this.lblTitleDash = new Label();
+            this.lblTitleDash.Text = "DASHBOARD GENERAL";
+            this.lblTitleDash.Font = new Font("Segoe UI Semibold", 10F);
+            this.lblTitleDash.ForeColor = Color.FromArgb(230, 230, 240);
+            this.lblTitleDash.AutoSize = true;
+            this.lblTitleDash.Location = new Point(614, 19);
+
+            this.pnlToolbar.Controls.AddRange(new Control[] {
+                lblDesde, dtpDesde, lblHasta, dtpHasta,
+                btnAplicar, btnExportPdf, lblTitleDash
+            });
 
             // ==========================================
             // FILA 0: KPI CARDS
@@ -180,9 +262,10 @@ namespace pj_Pharmacy.Forms
             // ==========================================
             // ENSAMBLAR
             // ==========================================
-            this.rootLayout.Controls.Add(this.pnlCards, 0, 0);
-            this.rootLayout.Controls.Add(this.pnlChartRow1, 0, 1);
-            this.rootLayout.Controls.Add(this.pnlChartRow2, 0, 2);
+            this.rootLayout.Controls.Add(this.pnlToolbar,   0, 0);
+            this.rootLayout.Controls.Add(this.pnlCards,     0, 1);
+            this.rootLayout.Controls.Add(this.pnlChartRow1, 0, 2);
+            this.rootLayout.Controls.Add(this.pnlChartRow2, 0, 3);
 
             // FORM
             this.AutoScaleDimensions = new SizeF(6F, 13F);
@@ -246,6 +329,14 @@ namespace pj_Pharmacy.Forms
 
         // Controles
         private TableLayoutPanel rootLayout;
+
+        // Toolbar
+        private Panel pnlToolbar;
+        private Label lblDesde, lblHasta, lblTitleDash;
+        private DateTimePicker dtpDesde, dtpHasta;
+        private Button btnAplicar, btnExportPdf;
+
+        // KPI Cards
         private FlowLayoutPanel pnlCards;
 
         private Panel pnlCardVentas, pnlVentasAccent;
@@ -260,6 +351,7 @@ namespace pj_Pharmacy.Forms
         private Panel pnlCardClientes, pnlClientesAccent;
         private Label lblClientesTitulo, lblClientesValor;
 
+        // Charts
         private TableLayoutPanel pnlChartRow1;
         private Chart chartBarras;
         private Chart chartDoughnut;

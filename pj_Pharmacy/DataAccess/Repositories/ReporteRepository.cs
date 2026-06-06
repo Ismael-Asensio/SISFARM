@@ -1,5 +1,6 @@
+using System;
 using System.Data;
-using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace pj_Pharmacy.DataAccess.Repositories
 {
@@ -8,60 +9,67 @@ namespace pj_Pharmacy.DataAccess.Repositories
     /// </summary>
     public static class ReporteRepository
     {
-        /// <summary>
-        /// Obtiene el resumen general del sistema (totales del mes).
-        /// </summary>
+        // ── Sin filtro (valores actuales del sistema) ────────────────────────────
+
+        /// <summary>Resumen general del sistema (totales del mes en curso).</summary>
         public static DataTable ObtenerResumen()
         {
             return DatabaseHelper.ExecuteReader("sp_Dashboard_Resumen");
         }
 
-        /// <summary>
-        /// Obtiene el top 10 de productos más vendidos.
-        /// </summary>
-        public static void TopProductosVendidos(DataGridView dgv)
+        // ── Con filtro de fechas ─────────────────────────────────────────────────
+
+        /// <summary>Resumen KPIs para el rango de fechas indicado.</summary>
+        public static DataTable ObtenerResumenFiltrado(DateTime desde, DateTime hasta)
         {
-            DatabaseHelper.FillDataGridView(dgv, "sp_Dashboard_TopProductos");
+            return DatabaseHelper.ExecuteReader(
+                "sp_Dashboard_Resumen_Filtro",
+                new SqlParameter("@FechaInicio", desde.Date),
+                new SqlParameter("@FechaFin",    hasta.Date));
         }
 
-        /// <summary>
-        /// Obtiene los productos con stock menor a 10 unidades.
-        /// </summary>
-        public static void ProductosStockBajo(DataGridView dgv)
+        /// <summary>Ventas agrupadas por mes dentro del rango indicado.</summary>
+        public static DataTable VentasPorMesFiltrado(DateTime desde, DateTime hasta)
         {
-            DatabaseHelper.FillDataGridView(dgv, "sp_Dashboard_StockBajo");
+            return DatabaseHelper.ExecuteReader(
+                "sp_Dashboard_VentasPorMes_Filtro",
+                new SqlParameter("@FechaInicio", desde.Date),
+                new SqlParameter("@FechaFin",    hasta.Date));
         }
 
-        /// <summary>
-        /// Obtiene las últimas 20 ventas registradas.
-        /// </summary>
-        public static void VentasRecientes(DataGridView dgv)
+        /// <summary>Top 10 productos más vendidos dentro del rango indicado.</summary>
+        public static DataTable TopProductosFiltrado(DateTime desde, DateTime hasta)
         {
-            DatabaseHelper.FillDataGridView(dgv, "sp_Dashboard_VentasRecientes");
+            return DatabaseHelper.ExecuteReader(
+                "sp_Dashboard_TopProductos_Filtro",
+                new SqlParameter("@FechaInicio", desde.Date),
+                new SqlParameter("@FechaFin",    hasta.Date));
         }
 
-        /// <summary>
-        /// Obtiene las últimas 20 compras registradas.
-        /// </summary>
-        public static void ComprasRecientes(DataGridView dgv)
+        /// <summary>Productos con stock bajo (no depende de fechas).</summary>
+        public static DataTable StockBajo()
         {
-            DatabaseHelper.FillDataGridView(dgv, "sp_Dashboard_ComprasRecientes");
+            return DatabaseHelper.ExecuteReader("sp_Dashboard_StockBajo");
         }
 
-        /// <summary>
-        /// Obtiene el resumen de ventas por mes (últimos 12 meses).
-        /// </summary>
-        public static void VentasPorMes(DataGridView dgv)
-        {
-            DatabaseHelper.FillDataGridView(dgv, "sp_Dashboard_VentasPorMes");
-        }
+        // ── Métodos legacy con DataGridView ──────────────────────────────────────
 
-        /// <summary>
-        /// Obtiene los productos próximos a vencer (90 días).
-        /// </summary>
-        public static void ProductosProximosVencer(DataGridView dgv)
-        {
-            DatabaseHelper.FillDataGridView(dgv, "sp_Dashboard_ProximosVencer");
-        }
+        public static void TopProductosVendidos(System.Windows.Forms.DataGridView dgv)
+            => DatabaseHelper.FillDataGridView(dgv, "sp_Dashboard_TopProductos");
+
+        public static void ProductosStockBajo(System.Windows.Forms.DataGridView dgv)
+            => DatabaseHelper.FillDataGridView(dgv, "sp_Dashboard_StockBajo");
+
+        public static void VentasRecientes(System.Windows.Forms.DataGridView dgv)
+            => DatabaseHelper.FillDataGridView(dgv, "sp_Dashboard_VentasRecientes");
+
+        public static void ComprasRecientes(System.Windows.Forms.DataGridView dgv)
+            => DatabaseHelper.FillDataGridView(dgv, "sp_Dashboard_ComprasRecientes");
+
+        public static void VentasPorMes(System.Windows.Forms.DataGridView dgv)
+            => DatabaseHelper.FillDataGridView(dgv, "sp_Dashboard_VentasPorMes");
+
+        public static void ProductosProximosVencer(System.Windows.Forms.DataGridView dgv)
+            => DatabaseHelper.FillDataGridView(dgv, "sp_Dashboard_ProximosVencer");
     }
 }
